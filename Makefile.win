@@ -1,0 +1,43 @@
+# Project: Projeto2
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = src/main.o src/hash_table/hashtable.o src/hash_table/main_hash.o src/patricia/main_patricia.o src/patricia/patricia.o src/menu/menu_inicial.o
+LINKOBJ  = src/main.o src/hash_table/hashtable.o src/hash_table/main_hash.o src/patricia/main_patricia.o src/patricia/patricia.o src/menu/menu_inicial.o
+LIBS     = -L"C:/Users/Jofre De Novais/Desktop/dev/TDM-GCC-64/lib" -L"C:/Users/Jofre De Novais/Desktop/dev/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Users/Jofre De Novais/Desktop/dev/TDM-GCC-64/include" -I"C:/Users/Jofre De Novais/Desktop/dev/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/Jofre De Novais/Desktop/dev/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Users/Jofre De Novais/Desktop/dev/TDM-GCC-64/include" -I"C:/Users/Jofre De Novais/Desktop/dev/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/Jofre De Novais/Desktop/dev/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Users/Jofre De Novais/Desktop/dev/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = desafio_02_grupo1.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+DEL      = C:\Users\Jofre De Novais\Desktop\dev\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+src/main.o: src/main.c
+	$(CC) -c src/main.c -o src/main.o $(CFLAGS)
+
+src/hash_table/hashtable.o: src/hash_table/hashtable.c
+	$(CC) -c src/hash_table/hashtable.c -o src/hash_table/hashtable.o $(CFLAGS)
+
+src/hash_table/main_hash.o: src/hash_table/main_hash.c
+	$(CC) -c src/hash_table/main_hash.c -o src/hash_table/main_hash.o $(CFLAGS)
+
+src/patricia/main_patricia.o: src/patricia/main_patricia.c
+	$(CC) -c src/patricia/main_patricia.c -o src/patricia/main_patricia.o $(CFLAGS)
+
+src/patricia/patricia.o: src/patricia/patricia.c
+	$(CC) -c src/patricia/patricia.c -o src/patricia/patricia.o $(CFLAGS)
+
+src/menu/menu_inicial.o: src/menu/menu_inicial.c
+	$(CC) -c src/menu/menu_inicial.c -o src/menu/menu_inicial.o $(CFLAGS)
