@@ -7,6 +7,8 @@ void menu_inicial()
 		system("cls");
 		printf("================================\n");
 		printf("=                              =\n");
+		printf("=         MENU INICIAL         =\n");
+		printf("=                              =\n");
 		printf("= 1 - Testar a PATRICIA        =\n");
 		printf("= 2 - Testar a Hash Table      =\n");
 		printf("= 0 - Sair                     =\n");
